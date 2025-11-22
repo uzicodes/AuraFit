@@ -1,0 +1,6 @@
+.selected-btn {
+    background-color: blue;
+    color: white;
+    padding: 40;
+    border: 1px solid black;
+}
