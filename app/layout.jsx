@@ -1,6 +1,5 @@
 'use client';
 
-import { AuthProvider } from '@/Provider/AuthProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
@@ -23,16 +22,14 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <AuthProvider>
-          <QueryClientProvider client={queryClient}>
-            <Navbar />
-            <div className="min-h-[calc(100vh-216px)]">
-              {children}
-            </div>
-            <Footer />
-            <Toaster />
-          </QueryClientProvider>
-        </AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <div className="min-h-[calc(100vh-216px)]">
+            {children}
+          </div>
+          <Footer />
+          <Toaster />
+        </QueryClientProvider>
       </body>
     </html>
   );

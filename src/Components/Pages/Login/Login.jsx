@@ -2,32 +2,22 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
 
 const Login = () => {
   const router = useRouter();
-  const { signIn, signInWithGoogle } = useAuthContext();
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log({ email, password });
-    try {
-      // user login
-      const result = await signIn(email, password);
-      // console.log(result);
-      router.push("/");
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Your LoggedIn Succesfuly!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+    
+    // TODO: Implement authentication
+    toast.success("Login functionality coming soon!");
+    // router.push("/");
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -132,7 +122,7 @@ const Login = () => {
 
             <div className="mt-6 text-center">
               <Link
-                to="/register"
+                href="/register"
                 className="text-sm text-green-500 hover:text-green-600 dark:text-green-400 dark:hover:text-green-300 font-semibold hover:underline transition-colors duration-300"
               >
                 {"Don't"} have an account yet? Sign up

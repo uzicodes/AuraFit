@@ -1,18 +1,13 @@
 'use client';
 
 import { FaLink, FaUser, FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
-
-
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const router = useRouter();
-  const { createUser, updateUserProfile, user, setUser, signInWithGoogle } =
-    useAuthContext();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -21,49 +16,25 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    // console.log({ email, name, photo, password });
-
-    try {
-      if (
-        !/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d).{6,}$/.test(password)
-      ) {
-        toast.error(
-          `Password doesn't meet the criteria. Please use at least one uppercase letter, special character, one digit and Minimum length of 6 characters`
-        );
-        return;
-      }
-      // Proceed if password is valid
-      // eslint-disable-next-line no-unused-vars
-      const result = await createUser(email, password);
-      console.log(result);
-      await updateUserProfile(name, photo);
-      setUser({ ...user, photoURL: photo, displayName: name });
-      //   router.push("/");
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Your Created Account Succesfuly!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
+    
+    if (
+      !/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d).{6,}$/.test(password)
+    ) {
+      toast.error(
+        `Password doesn't meet the criteria. Please use at least one uppercase letter, special character, one digit and Minimum length of 6 characters`
+      );
+      return;
     }
+    
+    // TODO: Implement user registration
+    console.log({ email, name, photo, password });
+    toast.success("Registration functionality coming soon!");
   };
 
-  const handleGoogleLogin = () => {
-    signInWithGoogle().then((res) => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Your Signed in Succesfuly!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.push("/");
-    });
+  const handleGoogleLogin = (e) => {
+    e.preventDefault();
+    // TODO: Implement Google registration
+    toast.success("Google registration functionality coming soon!");
   };
 
   return (

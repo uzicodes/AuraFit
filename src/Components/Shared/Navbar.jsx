@@ -351,13 +351,12 @@
 'use client';
 
 import Link from "next/link";
-import useAuthContext from "../hooks/useAuthContext";
 import { useState, useEffect, useRef } from "react";
 import { FaDumbbell, FaTimes } from "react-icons/fa";
 import { HiMenuAlt3 } from "react-icons/hi";
 
 const Navbar = () => {
-  const { user, logOut } = useAuthContext();
+  const user = null; // TODO: Add authentication later
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -535,7 +534,7 @@ const Navbar = () => {
                         Profile
                       </Link>
                       <button
-                        onClick={logOut}
+                        onClick={() => {/* TODO: Add logout */}}
                         className={`block w-full text-left px-4 py-2 text-sm ${
                           darkMode
                             ? "text-gray-200 hover:bg-[#16A34A] hover:text-white"
@@ -679,7 +678,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => {
-                  logOut();
+                  // TODO: Add logout
                   setIsOpen(false);
                 }}
                 className="block w-full py-3 px-4 bg-[#16A34A] text-center text-white font-medium rounded-lg hover:bg-[#22c55e] transition-all duration-200 transform hover:scale-105"
