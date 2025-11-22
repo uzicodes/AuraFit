@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import useAuthContext from "./useAuthContext";
 
 const axiosSecure = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || "https://fitness-tracker-server-ruddy.vercel.app",
@@ -11,7 +10,8 @@ const axiosSecure = axios.create({
 
 const useAxiosSecure = () => {
   const router = useRouter();
-  const { logout } = useAuthContext();
+  // TODO: Add authentication later
+  const logout = () => {};
   axiosSecure.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem("access-token");

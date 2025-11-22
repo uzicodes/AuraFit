@@ -11,9 +11,9 @@ import Swal from "sweetalert2";
 
 
 import { useRouter } from "next/navigation";
-import useAuthContext from "../../hooks/useAuthContext";
 const BeATrainer = () => {
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
   const router = useRouter();
   const axiosPublic = useAxiosPublic();
   const [selectedCategory, setSelectedCategory] = useState(null);

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
-import useAuthContext from "../../hooks/useAuthContext";
 import useRole from "../../hooks/useRole";
 import { Dialog, DialogPanel, TransitionChild, Transition } from "@headlessui/react";
 
 const MemberProfile = () => {
-  const { user, updateUserProfile, setUser, loading } = useAuthContext() || {};
+  // TODO: Add authentication later
+  const user = null;
+  const updateUserProfile = async () => {};
+  const setUser = () => {};
+  const loading = false;
   const [role, isLoading] = useRole();
   const [isOpen, setIsOpen] = useState(false);
 

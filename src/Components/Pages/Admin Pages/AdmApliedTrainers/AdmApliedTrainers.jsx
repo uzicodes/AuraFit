@@ -3,12 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import ApliedTrainerRow from "./ApliedTrainerRow"
 import noDataFound from "../../../../assets/data_not_found.svg";
-import useAuthContext from "../../../hooks/useAuthContext";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../../Shared/LoadingSpinner";
 import useRole from "../../../hooks/useRole";
 const AdmApliedTrainers = () => {
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
   const [roleFromHook] = useRole();
   const [appliedTrainers, setAppliedTrainers] = useState([]);
   const axiosSecure = useAxiosSecure();

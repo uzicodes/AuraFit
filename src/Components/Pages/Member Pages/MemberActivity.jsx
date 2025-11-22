@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { useEffect, useState } from "react";
-import useAuthContext from "../../hooks/useAuthContext";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const MemberActivity = () => {
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
   const [appliedTrainers, setAppliedTrainers] = useState([]);
   const axiosPublic = useAxiosPublic();
   const status = `Pending`;

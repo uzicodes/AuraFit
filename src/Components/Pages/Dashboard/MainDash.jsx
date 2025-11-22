@@ -4,12 +4,12 @@ import { FaDumbbell, FaChartLine, FaCalendarAlt, FaUserFriends, FaHome, FaUtensi
 import { HiOutlineMenu } from "react-icons/hi";
 import Link from "next/link";
 import useRole from "../../hooks/useRole";
-import useAuthContext from "../../hooks/useAuthContext";
 import { trainerLinks, memberLinks, adminLinks } from './Links';
 const MainDash = () => {
   const [greeting, setGreeting] = useState("");
   const [role, isRoleLoading] = useRole();
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
 
 
 

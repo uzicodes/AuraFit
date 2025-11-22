@@ -1,8 +1,9 @@
-import useAuthContext from "./useAuthContext";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 const useTrainerDetails = () => {
-  const { user, loading } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
+  const loading = false;
   const axiosSecure = useAxiosSecure();
 
   const { data: trainerDetails, isLoading, refetch } = useQuery({

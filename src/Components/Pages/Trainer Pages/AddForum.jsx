@@ -2,12 +2,12 @@ import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useRole from "../../hooks/useRole";
-import useAuthContext from "../../hooks/useAuthContext";
 
 const AdmAddclassNamees = () => {
   const axiosSecure = useAxiosSecure();
   const [role] = useRole();
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
   // console.log(user);
   const handleAddClass = async (e) => {
     e.preventDefault();

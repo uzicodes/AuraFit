@@ -1,9 +1,10 @@
-import useAuthContext from "./useAuthContext";
 import useAxiosPublic from "./useAxiosPublic";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 const useRole = () => {
-  const { user, loading } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
+  const loading = false;
   const axiosSecure = useAxiosSecure();
   // const axiosPublic = useAxiosPublic();
 

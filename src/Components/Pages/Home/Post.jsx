@@ -3,7 +3,6 @@ import { BiSolidDownvote, BiSolidUpvote } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
-import useAuthContext from "../../hooks/useAuthContext";
 import { Clock, MapPin, Eye, TrendingUp } from "lucide-react";
 
 /* eslint-disable react/prop-types */
@@ -13,7 +12,8 @@ const Post = ({ post }) => {
   const [hasVoted, setHasVoted] = useState(false);
   const [voteType, setVoteType] = useState(null);
   const axiosPublic = useAxiosPublic();
-  const { user } = useAuthContext();
+  // TODO: Add authentication later
+  const user = null;
 
   // destructuring prop 1
   const {
