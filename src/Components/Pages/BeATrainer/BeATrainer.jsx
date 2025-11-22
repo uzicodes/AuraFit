@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import Certificateslot from "./Certificateslot";
 import DaySlots from "./DaySlots";
@@ -6,7 +8,7 @@ import TimePicker from "./TimePicker";
 import axios from "axios";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-'use client';
+
 
 import { useRouter } from "next/navigation";
 import useAuthContext from "../../hooks/useAuthContext";
