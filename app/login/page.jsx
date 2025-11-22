@@ -111,11 +111,11 @@ const Login = () => {
               />
             </div>
 
-            <div>
+            <div className="flex justify-center">
               <button 
                 type="submit"
                 disabled={isLoading}
-                className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-all duration-300 transform bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-8 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-all duration-300 transform bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="flex items-center justify-center">
                   {isLoading ? "Logging in..." : "Login"}
@@ -129,12 +129,13 @@ const Login = () => {
               <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
             </div>
 
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-              disabled={isLoading}
-              className="flex items-center justify-center w-full px-6 py-2.5 text-gray-700 dark:text-gray-200 transition-colors duration-300 transform border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-200 dark:focus:ring-gray-600 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={handleGoogleLogin}
+                disabled={isLoading}
+                className="flex items-center justify-center px-8 py-2.5 text-gray-700 dark:text-gray-200 transition-colors duration-300 transform border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-200 dark:focus:ring-gray-600 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
               <svg className="w-5 h-5 mx-2" viewBox="0 0 40 40">
                 <path
                   d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
@@ -155,7 +156,8 @@ const Login = () => {
               </svg>
 
               <span className="mx-2">Sign in with Google</span>
-            </button>
+              </button>
+            </div>
 
             <div className="text-center">
               <Link

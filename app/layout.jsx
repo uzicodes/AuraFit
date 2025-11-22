@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Navbar from '@/Components/Shared/Navbar';
 import Footer from '@/Components/Shared/Footer';
 import '../src/index.css';
@@ -11,6 +12,10 @@ import '../src/button.css';
 
 export default function RootLayout({ children }) {
   const [queryClient] = useState(() => new QueryClient());
+  const pathname = usePathname();
+  
+  // Hide footer on login and register pages
+  const hideFooter = pathname === '/login' || pathname === '/register';
 
   return (
     <html lang="en">
@@ -27,7 +32,7 @@ export default function RootLayout({ children }) {
           <div className="min-h-[calc(100vh-216px)]">
             {children}
           </div>
-          <Footer />
+          {!hideFooter && <Footer />}
           <Toaster />
         </QueryClientProvider>
       </body>
