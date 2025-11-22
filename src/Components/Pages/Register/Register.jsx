@@ -1,5 +1,7 @@
-import { FaLink, FaUser, FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
 'use client';
+
+import { FaLink, FaUser, FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
+
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
