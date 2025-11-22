@@ -5,7 +5,6 @@ import "../../../../src/button.css";
 import { useQuery } from "@tanstack/react-query";
 import Post from "../Home/Post";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
 import { FaNewspaper } from "react-icons/fa";
 
@@ -16,7 +15,17 @@ const AllPosts = () => {
   const [posts, setPosts] = useState([]); 
   
   const [currentPage, setCurrentPage] = useState(0);
-  const { count } = useLoaderData();
+  
+  // Fetch total count for pagination
+  const { data: countData } = useQuery({
+    queryKey: ["postCount"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/postsCount");
+      return res.data;
+    },
+  });
+
+  const count = countData?.count || 0;
   const itemsPerPage = 6;
   const numberOfPages = Math.ceil(count / itemsPerPage);
 

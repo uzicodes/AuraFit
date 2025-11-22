@@ -6,6 +6,8 @@ import TrainerBooked from '@/Components/Shared/TrainerBooked';
 import PrivateRoute from '@/Components/Router/PrivateRoute';
 import LoadingSpinner from '@/Components/Shared/LoadingSpinner';
 
+export const dynamic = 'force-dynamic';
+
 function TrainerBookedContent() {
   const params = useParams();
   const [trainer, setTrainer] = useState(null);

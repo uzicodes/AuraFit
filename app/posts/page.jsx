@@ -2,6 +2,8 @@
 
 import AllPosts from '@/Components/Pages/AllPosts/AllPosts';
 
-export default function PostsPage() {
+export const dynamic = 'force-dynamic';
+
+export default function AllPostsPage() {
   return <AllPosts />;
 }

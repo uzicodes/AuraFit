@@ -5,6 +5,8 @@ import { useParams } from 'next/navigation';
 import TrainerDetails from '@/Components/Shared/TrainerDetails';
 import LoadingSpinner from '@/Components/Shared/LoadingSpinner';
 
+export const dynamic = 'force-dynamic';
+
 export default function TrainerDetailsPage() {
   const params = useParams();
   const [trainer, setTrainer] = useState(null);
