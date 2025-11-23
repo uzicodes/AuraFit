@@ -33,7 +33,7 @@ const ErrorPage = () => {
 
           <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
             <button
-              onClick={() => router.push(-1)}
+              onClick={() => router.back()}
               className="bg-[#57cc99] py-3 px-6 rounded-lg flex items-center justify-center w-1/2 text-sm text-gray-700 transition-colors duration-200 border gap-x-2 sm:w-auto   hover:bg-gray-100 "
             >
               <svg
