@@ -6,13 +6,13 @@ import { FaEnvelope, FaBell, FaGift } from "react-icons/fa";
 
 const NewsLetter = () => {
   const axiosPublic = useAxiosPublic();
-  const formRef = React.createRef();
+  const formRef = React.createRef<HTMLFormElement>();
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const newEmail = { email };
-    if ((email, email.length > 0)) {
+    if (email && email.length > 0) {
       axiosPublic.post("newsletter", newEmail).then((res) => {
         console.log(res);
         toast.success("Thank you for subscribing to our newsletter!");
