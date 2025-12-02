@@ -1,6 +1,7 @@
 import pic1 from "../../../assets/abou1.jpg";
 import pic2 from "../../../assets/abou2.jpg";
 import { FaCheck, FaHeart, FaUsers, FaTrophy, FaPlay } from "react-icons/fa";
+import Image from "next/image";
 
 const AboutUs = () => {
   const stats = [
@@ -100,10 +101,12 @@ const AboutUs = () => {
             <div className="grid grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-4 md:space-y-6">
                 <div className="relative group overflow-hidden rounded-2xl shadow-xl">
-                  <img
+                  <Image
                     className="w-full h-48 md:h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                     src={pic1}
                     alt="Fitness training"
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
@@ -118,10 +121,12 @@ const AboutUs = () => {
               </div>
               <div className="mt-8 md:mt-12 space-y-4 md:space-y-6">
                 <div className="relative group overflow-hidden rounded-2xl shadow-xl">
-                  <img
+                  <Image
                     className="w-full h-48 md:h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                     src={pic2}
                     alt="Fitness community"
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
