@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 // import CompoHeading from "../../Shared/CompoHeading";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useEffect, useState } from "react";
 import Trainer from "../Home/Trainer";
 import { FaDumbbell } from "react-icons/fa";
 import CompoHeading from "../../Shared/CompoHeading";
 
 const AllTrainers = () => {
   const axiosPublic = useAxiosPublic();
-  const [trainers, setTrainers] = useState([]);
+
   // fetched the trainers data using tenstack
-  const { data: trainer = [] } = useQuery({
+  const { data: trainers = [] } = useQuery({
     queryKey: ["trainer"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/trainers`);
@@ -19,12 +18,6 @@ const AllTrainers = () => {
     },
   });
 
-  // set the fetched data in usestae
-  useEffect(() => {
-    setTrainers(trainer);
-  }, [trainer]);
-
-  //   console.log(trainers);
   return (
     <div className="px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
       <div className="text-center my-16">

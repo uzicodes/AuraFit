@@ -43,7 +43,7 @@ const AllClasses = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [inputRef]);
+  }, []); // Empty dependency array - refs don't change
 
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;

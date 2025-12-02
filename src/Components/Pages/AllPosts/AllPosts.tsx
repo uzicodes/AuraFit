@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
 import CompoHeading from "../../Shared/CompoHeading";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import "../../../../src/button.css";
 import { useQuery } from "@tanstack/react-query";
 import Post from "../Home/Post";
-import axios from "axios";
 import LoadingSpinner from "../../Shared/LoadingSpinner";
 import { FaNewspaper } from "react-icons/fa";
+import { useState } from "react";
 
 const AllPosts = () => {
   const axiosPublic = useAxiosPublic();
-  
-  // looping the card based on posts
-  const [posts, setPosts] = useState([]); 
-  
+
   const [currentPage, setCurrentPage] = useState(0);
-  
+
   // Fetch total count for pagination
   const { data: countData } = useQuery({
     queryKey: ["postCount"],
@@ -32,7 +28,7 @@ const AllPosts = () => {
   const pages = [...Array(numberOfPages).keys()];
 
   // fetched the data using tenstack query
-  const { data: psts = [], isLoading } = useQuery({
+  const { data: posts = [], isLoading } = useQuery({
     queryKey: ["psts", currentPage, itemsPerPage],
     queryFn: async () => {
       const res = await axiosPublic.get(
@@ -43,13 +39,8 @@ const AllPosts = () => {
     },
   });
 
-  // set the fetched data in usestae
-  useEffect(() => {
-    setPosts(psts);
-  }, [psts]);
-
   // load the data 
-  if(isLoading){
+  if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>
   }
   // handle previous page button
@@ -67,7 +58,7 @@ const AllPosts = () => {
   };
   return (
     <div className="px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
-       <div className="text-center my-16">
+      <div className="text-center my-16">
         <div className="inline-flex items-center gap-2 bg-[#16A34A]/10 text-[#16A34A] px-4 py-2 rounded-full text-sm font-semibold mb-4">
           <FaNewspaper className="text-sm" />
           contents
@@ -85,7 +76,7 @@ const AllPosts = () => {
       </div>
       <div className="text-center my-10 space-x-8">
         {/* pagination */}
-        
+
         <button onClick={handlePrevPage} className="join-item btn btn-outline">
           Previous page
         </button>
@@ -103,7 +94,7 @@ const AllPosts = () => {
         </button>
       </div>
     </div>
-    
+
   );
 };
 
