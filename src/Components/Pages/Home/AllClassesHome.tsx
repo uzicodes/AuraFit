@@ -4,7 +4,7 @@ import ClassCard from "../AllClasses/ClassCard";
 import { FaArrowRight, FaFire, FaClock, FaUsers } from "react-icons/fa";
 
 const AllClassesHome = () => {
-  const [classes, isLoading] = useAllClasses();
+  const [classes, isLoading] = useAllClasses(0, 6);
 
   if (isLoading) {
     return (
@@ -27,7 +27,7 @@ const AllClassesHome = () => {
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#16A34A] rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#22C55E] rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">

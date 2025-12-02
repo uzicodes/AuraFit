@@ -43,8 +43,7 @@ const Banner = () => {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transform your fitness journey with our cutting-edge tracker. Stay
-            motivated, monitor progress, and achieve greatness every single day.
+            Track. Train. Triumph ! Elevate your daily performance with the ultimate fitness companion designed to keep you focused, fueled & moving forward.
           </p>
 
           {/* CTA Buttons */}
