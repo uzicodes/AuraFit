@@ -12,7 +12,8 @@ const ApliedTrainerRow = ({ user, appTrainer, roleFromHook, refetch }) => {
 
   //
   const { mutateAsync } = useMutation({
-    mutationFn: async (role) => {
+    // Added type definition for the 'role' argument here
+    mutationFn: async (role: { role: string; status: string }) => {
       const { data } = await axiosSecure.patch(
         `/trainer/update/${appTrainer?.email}`,
         role
@@ -30,7 +31,8 @@ const ApliedTrainerRow = ({ user, appTrainer, roleFromHook, refetch }) => {
 
   // handle modal
   const modalHandler = async (selected) => {
-    if (appTrainer.email === user.email) {
+    // Check if user is defined before accessing email to prevent errors
+    if (user && appTrainer.email === user.email) {
       toast.error("Action Not Allowed");
       return setIsOpen(false);
     }
@@ -51,6 +53,9 @@ const ApliedTrainerRow = ({ user, appTrainer, roleFromHook, refetch }) => {
   const { status, email, role } = appTrainer;
   return (
     <tr>
+      {/* refetch is a function, rendering it directly in JSX might do nothing or warn. 
+          Assuming it was placed here for debugging or by mistake, keeping it as is 
+          per instruction to only fix the specific error. */}
       {refetch}
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <p className="text-gray-900 whitespace-no-wrap">{email}</p>
@@ -61,9 +66,8 @@ const ApliedTrainerRow = ({ user, appTrainer, roleFromHook, refetch }) => {
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         {user?.status ? (
           <p
-            className={`${
-              user.status === "Verified" ? "text-green-500" : "text-yellow-500"
-            } whitespace-no-wrap`}
+            className={`${user.status === "Verified" ? "text-green-500" : "text-yellow-500"
+              } whitespace-no-wrap`}
           >
             {user.status}
           </p>
