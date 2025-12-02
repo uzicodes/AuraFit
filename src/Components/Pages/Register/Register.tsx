@@ -1,6 +1,6 @@
 'use client';
 
-import { FaLink, FaUser, FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
+import { FaPhone, FaUser, FaEnvelope, FaLock, FaDumbbell } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -14,9 +14,9 @@ const Register = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    const photo = form.photo.value;
+    const phoneNumber = form.phoneNumber.value;
     const password = form.password.value;
-    
+
     if (
       !/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d).{6,}$/.test(password)
     ) {
@@ -25,9 +25,9 @@ const Register = () => {
       );
       return;
     }
-    
+
     // TODO: Implement user registration
-    console.log({ email, name, photo, password });
+    console.log({ email, name, phoneNumber, password });
     toast.success("Registration functionality coming soon!");
   };
 
@@ -85,16 +85,16 @@ const Register = () => {
               />
             </div>
 
-            {/* Photo URL field */}
+            {/* Phone Number field */}
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaLink className="w-5 h-5 text-green-500" />
+                <FaPhone className="w-5 h-5 text-green-500" />
               </div>
               <input
-                type="text"
-                name="photo"
+                type="tel"
+                name="phoneNumber"
                 className="block w-full py-3 pl-10 pr-3 text-gray-700 bg-gray-50 border border-gray-200 rounded-lg dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:border-green-500 dark:focus:border-green-500 focus:ring-green-500 focus:outline-none focus:ring focus:ring-opacity-40 transition-all duration-300"
-                placeholder="Photo URL"
+                placeholder="Phone Number"
                 required
               />
             </div>
@@ -152,7 +152,7 @@ const Register = () => {
                 />
                 <path
                   d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                  fill="#1976D2"
+                  fill="##1976D2"
                 />
               </svg>
 
@@ -161,7 +161,7 @@ const Register = () => {
 
             <div className="mt-4 text-center">
               <Link
-                to="/login"
+                href="/login"
                 className="text-sm text-green-500 hover:text-green-600 dark:text-green-400 dark:hover:text-green-300 font-semibold hover:underline transition-colors duration-300"
               >
                 Already have an account? Login
@@ -175,4 +175,3 @@ const Register = () => {
 };
 
 export default Register;
-
