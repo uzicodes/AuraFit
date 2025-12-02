@@ -5,6 +5,7 @@ import pic4 from "../../../assets/stretching-50.png";
 import pic5 from "../../../assets/weightlifter-48.png";
 import pic6 from "../../../assets/yoga-50.png";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
 
 const Features = () => {
   const features = [
@@ -74,19 +75,21 @@ const Features = () => {
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}></div>
-              
+
               {/* Icon */}
               <div className="relative mb-6">
                 <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <img
+                  <Image
                     src={feature.icon}
                     alt={feature.title}
-                    className="w-8 h-8 filter brightness-0 invert"
+                    width={32}
+                    height={32}
+                    className="filter brightness-0 invert"
                   />
                 </div>
                 <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br ${feature.gradient} rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300`}></div>
               </div>
-              
+
               {/* Content */}
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#16A34A] transition-colors duration-300">
                 {feature.title}
@@ -94,7 +97,7 @@ const Features = () => {
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                 {feature.description}
               </p>
-              
+
               {/* Learn More Link */}
               <div className="flex items-center text-[#16A34A] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
                 <span>Learn More</span>
