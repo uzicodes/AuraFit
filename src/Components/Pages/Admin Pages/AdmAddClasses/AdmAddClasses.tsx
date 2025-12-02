@@ -20,8 +20,7 @@ const AdmAddclassNamees = () => {
     // upload pic to imgbb
     try {
       const { data } = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${
-          process.env.NEXT_PUBLIC_IMGBB_API_KEY
+        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY
         }`,
         formData
       );
@@ -59,7 +58,7 @@ const AdmAddclassNamees = () => {
       <div className="max-w-4xl p-6  mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 ">
         <form onSubmit={handleAddClass}>
           <div className="grid grid-cols-1 gap-6 mt-4 ">
-            {/*  */}
+            {/* */}
             <div className=" bg-white w-full  m-auto rounded-lg">
               <span className="">Upload An Image</span>
               <div className="file_upload px-5 py-3 relative border-4 border-dashed border-gray-300 rounded-lg">
@@ -81,7 +80,7 @@ const AdmAddclassNamees = () => {
               </div>
             </div>
 
-            {/*  */}
+            {/* */}
             <div>
               <label className="text-gray-700 dark:text-gray-200">
                 Class Name
@@ -117,9 +116,9 @@ const AdmAddclassNamees = () => {
                 Description
               </label>
               <textarea
-                id="password"
+                id="description"
                 name="description"
-                type="password"
+                // Removed type="password" here
                 className="block sm:h-52 w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
