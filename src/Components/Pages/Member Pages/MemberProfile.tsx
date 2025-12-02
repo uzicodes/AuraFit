@@ -6,8 +6,8 @@ import { Dialog, DialogPanel, TransitionChild, Transition } from "@headlessui/re
 const MemberProfile = () => {
   // TODO: Add authentication later
   const user = null;
-  const updateUserProfile = async () => {};
-  const setUser = () => {};
+  const updateUserProfile = async () => { };
+  const setUser = () => { };
   const loading = false;
   const [role, isLoading] = useRole();
   const [isOpen, setIsOpen] = useState(false);
@@ -16,10 +16,9 @@ const MemberProfile = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const photo = form.photo.value;
-    
-    updateUserProfile(name, photo);
-    setUser({ ...user, photoURL: photo, displayName: name });
+
+    updateUserProfile();
+    setUser();
   };
 
   function open() {
@@ -39,23 +38,21 @@ const MemberProfile = () => {
           <div className="relative h-48 bg-[#16A34A]">
             <div className="absolute inset-0 backdrop-blur-sm mix-blend-overlay"></div>
           </div>
-          
+
           <div className="relative px-6 pb-8">
             <div className="flex flex-col items-center -mt-24">
-              <img
-                src={user?.photoURL}
-                alt="Profile"
-                className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-700 shadow-lg object-cover"
-              />
-              
+              <div className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-700 shadow-lg bg-green-500 flex items-center justify-center text-white text-4xl font-bold">
+                {user?.displayName?.charAt(0)?.toUpperCase() || user?.email?.charAt(0)?.toUpperCase() || 'U'}
+              </div>
+
               <span className="mt-4 px-4 py-1 bg-green-500 dark:bg-green-600 text-white text-sm font-medium rounded-full uppercase tracking-wide">
                 {role}
               </span>
-              
+
               <h2 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
                 {user?.displayName}
               </h2>
-              
+
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 ID: {user?.uid}
               </p>
@@ -66,7 +63,7 @@ const MemberProfile = () => {
                 <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h3>
                 <p className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">{user?.email}</p>
               </div>
-              
+
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                 <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Member Status</h3>
                 <p className="mt-1 text-lg font-semibold text-gray-900 dark:text-white capitalize">{role}</p>
@@ -76,7 +73,7 @@ const MemberProfile = () => {
             <div className="mt-8 flex justify-center">
               <button
                 onClick={open}
-                className="px-6 py-3 bg-[#16A34A] text-white"
+                className="px-6 py-3 bg-[#16A34A] text-white rounded-lg hover:bg-green-600 transition-colors"
               >
                 Update Profile
               </button>
@@ -106,7 +103,7 @@ const MemberProfile = () => {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
                         <input
-                          defaultValue={user.displayName}
+                          defaultValue={user?.displayName}
                           type="text"
                           name="name"
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600 dark:bg-gray-700 dark:text-white"
@@ -117,26 +114,16 @@ const MemberProfile = () => {
                       <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email (uneditable)</label>
                         <input
-                          defaultValue={user.email}
+                          defaultValue={user?.email}
                           type="email"
                           disabled
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed"
                         />
                       </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Photo URL</label>
-                        <input
-                          defaultValue={user.photoURL}
-                          type="url"
-                          name="photo"
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600 dark:bg-gray-700 dark:text-white"
-                          required
-                        />
-                      </div>
-
                       <div className="mt-6">
-                        <button onClick={close}
+                        <button
+                          onClick={close}
                           type="submit"
                           className="w-full px-4 py-2 bg-[#16A34A] text-white font-semibold rounded-lg shadow-md transform transition hover:scale-105"
                         >

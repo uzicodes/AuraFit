@@ -23,8 +23,7 @@ const AdmAddclassNamees = () => {
     // upload pic to imgbb
     try {
       const { data } = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${
-          process.env.NEXT_PUBLIC_IMGBB_API_KEY
+        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY
         }`,
         formData
       );
@@ -108,7 +107,6 @@ const AdmAddclassNamees = () => {
               <textarea
                 id="password"
                 name="shortdescription"
-                type="password"
                 className="block sm:h-52 md:h-20 w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
@@ -120,7 +118,6 @@ const AdmAddclassNamees = () => {
               <textarea
                 id="password"
                 name="description"
-                type="password"
                 className="block sm:h-52 w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>

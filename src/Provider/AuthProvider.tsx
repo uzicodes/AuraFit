@@ -53,11 +53,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  //   update user profile name and photo url
-  const updateUserProfile = (name, photo) => {
+  //   update user profile name
+  const updateUserProfile = (name) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: photo,
     });
   };
 

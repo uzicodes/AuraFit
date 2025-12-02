@@ -115,9 +115,8 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${getGlassEffect()} ${
-          hidden ? "-translate-y-full" : "translate-y-0"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${getGlassEffect()} ${hidden ? "-translate-y-full" : "translate-y-0"
+          }`}
       >
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between py-4">
@@ -156,48 +155,40 @@ const Navbar = () => {
               {user ? (
                 <div className="relative group">
                   <button className="flex items-center space-x-2 focus:outline-none">
-                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#16A34A] transition-transform duration-300 group-hover:scale-110">
-                      <img
-                        src={user.photoURL || "https://via.placeholder.com/40"}
-                        alt="User"
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="w-10 h-10 rounded-full border-2 border-[#16A34A] transition-transform duration-300 group-hover:scale-110 bg-green-500 flex items-center justify-center text-white font-bold">
+                      {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || 'U'}
                     </div>
                   </button>
 
                   <div
-                    className={`absolute right-0 mt-2 w-48 ${
-                      darkMode ? "bg-gray-800" : "bg-white"
-                    } rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden`}
+                    className={`absolute right-0 mt-2 w-48 ${darkMode ? "bg-gray-800" : "bg-white"
+                      } rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden`}
                   >
                     <div className="py-2">
                       <Link
                         href="/dashboard"
-                        className={`block px-4 py-2 text-sm ${
-                          darkMode
+                        className={`block px-4 py-2 text-sm ${darkMode
                             ? "text-gray-200 hover:bg-[#16A34A] hover:text-white"
                             : "text-gray-700 hover:bg-[#16A34A] hover:text-white"
-                        } transition-colors duration-200`}
+                          } transition-colors duration-200`}
                       >
                         Dashboard
                       </Link>
                       <Link
                         href="/dashboard/myProfile"
-                        className={`block px-4 py-2 text-sm ${
-                          darkMode
+                        className={`block px-4 py-2 text-sm ${darkMode
                             ? "text-gray-200 hover:bg-[#16A34A] hover:text-white"
                             : "text-gray-700 hover:bg-[#16A34A] hover:text-white"
-                        } transition-colors duration-200`}
+                          } transition-colors duration-200`}
                       >
                         Profile
                       </Link>
                       <button
-                        onClick={() => {/* TODO: Add logout */}}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
-                          darkMode
+                        onClick={() => {/* TODO: Add logout */ }}
+                        className={`block w-full text-left px-4 py-2 text-sm ${darkMode
                             ? "text-gray-200 hover:bg-[#16A34A] hover:text-white"
                             : "text-gray-700 hover:bg-[#16A34A] hover:text-white"
-                        } transition-colors duration-200`}
+                          } transition-colors duration-200`}
                       >
                         Logout
                       </button>
@@ -232,11 +223,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm ${
-          darkMode ? "bg-gray-900/95 backdrop-blur-md" : "bg-white/95 backdrop-blur-md"
-        } shadow-2xl transform transition-transform duration-300 ease-in-out z-[55] mobile-menu ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm ${darkMode ? "bg-gray-900/95 backdrop-blur-md" : "bg-white/95 backdrop-blur-md"
+          } shadow-2xl transform transition-transform duration-300 ease-in-out z-[55] mobile-menu ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full pt-20 p-6 overflow-y-auto">
           {/* Close button - positioned at top right */}
@@ -247,9 +236,8 @@ const Navbar = () => {
               aria-label="Close menu"
             >
               <FaTimes
-                className={`w-6 h-6 ${
-                  darkMode ? "text-white" : "text-gray-800"
-                }`}
+                className={`w-6 h-6 ${darkMode ? "text-white" : "text-gray-800"
+                  }`}
               />
             </button>
           </div>
@@ -257,10 +245,10 @@ const Navbar = () => {
           {/* Navigation Links */}
           <ul className="space-y-6 mb-8">
             {navLinks.map((link, index) => (
-              <li 
+              <li
                 key={link.path}
                 className="transform transition-all duration-300 ease-out"
-                style={{ 
+                style={{
                   transitionDelay: isOpen ? `${index * 100}ms` : '0ms',
                   opacity: isOpen ? 1 : 0,
                   transform: isOpen ? 'translateX(0)' : 'translateX(20px)'
@@ -268,11 +256,9 @@ const Navbar = () => {
               >
                 <Link
                   href={link.path}
-                  className={`block text-xl font-medium ${
-                    darkMode ? "text-white" : "text-gray-800"
-                  } hover:text-[#16A34A] transition-colors duration-200 py-2 border-b ${
-                    darkMode ? "border-gray-700" : "border-gray-200"
-                  }`}
+                  className={`block text-xl font-medium ${darkMode ? "text-white" : "text-gray-800"
+                    } hover:text-[#16A34A] transition-colors duration-200 py-2 border-b ${darkMode ? "border-gray-700" : "border-gray-200"
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -285,25 +271,19 @@ const Navbar = () => {
           {user ? (
             <div className="mt-auto space-y-4">
               <div className="flex items-center space-x-3 mb-6 p-4 rounded-lg bg-gradient-to-r from-[#16A34A]/10 to-[#22c55e]/10">
-                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#16A34A]">
-                  <img
-                    src={user.photoURL || "https://via.placeholder.com/48"}
-                    alt="User"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-12 h-12 rounded-full border-2 border-[#16A34A] bg-green-500 flex items-center justify-center text-white font-bold text-lg">
+                  {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || 'U'}
                 </div>
                 <div className="flex-1">
                   <p
-                    className={`font-medium truncate ${
-                      darkMode ? "text-white" : "text-gray-800"
-                    }`}
+                    className={`font-medium truncate ${darkMode ? "text-white" : "text-gray-800"
+                      }`}
                   >
                     {user.displayName || "User"}
                   </p>
                   <p
-                    className={`text-sm truncate ${
-                      darkMode ? "text-gray-300" : "text-gray-500"
-                    }`}
+                    className={`text-sm truncate ${darkMode ? "text-gray-300" : "text-gray-500"
+                      }`}
                   >
                     {user.email}
                   </p>
@@ -312,11 +292,10 @@ const Navbar = () => {
 
               <Link
                 href="/dashboard"
-                className={`block w-full py-3 px-4 ${
-                  darkMode
+                className={`block w-full py-3 px-4 ${darkMode
                     ? "bg-gray-800 text-white hover:bg-gray-700"
                     : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                } text-center font-medium rounded-lg transition-all duration-200 transform hover:scale-105`}
+                  } text-center font-medium rounded-lg transition-all duration-200 transform hover:scale-105`}
                 onClick={() => setIsOpen(false)}
               >
                 Dashboard
@@ -324,11 +303,10 @@ const Navbar = () => {
 
               <Link
                 href="/dashboard/myProfile"
-                className={`block w-full py-3 px-4 ${
-                  darkMode
+                className={`block w-full py-3 px-4 ${darkMode
                     ? "bg-gray-800 text-white hover:bg-gray-700"
                     : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                } text-center font-medium rounded-lg transition-all duration-200 transform hover:scale-105`}
+                  } text-center font-medium rounded-lg transition-all duration-200 transform hover:scale-105`}
                 onClick={() => setIsOpen(false)}
               >
                 Profile

@@ -4,7 +4,7 @@ import useTrainerDetails from "../../hooks/useTrainerDetails";
 import SlotRow from "./SlotRow";
 
 const ManageSlots = () => {
-  const { trainerDetails, isLoading, error, refetch } = useTrainerDetails();
+  const { trainerDetails, isLoading, refetch } = useTrainerDetails();
   const axiosSecure = useAxiosSecure();
 
 
@@ -32,10 +32,6 @@ const ManageSlots = () => {
 
   if (isLoading) {
     return <LoadingSpinner />;
-  }
-
-  if (error) {
-    return <div>Error fetching trainer details.</div>;
   }
 
   if (

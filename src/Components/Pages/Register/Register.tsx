@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import Swal from "sweetalert2";
 
 const Register = () => {
   const router = useRouter();
@@ -38,12 +37,6 @@ const Register = () => {
     // TODO: Implement user registration
     console.log({ email, name, phoneNumber, password });
     toast.success("Registration functionality coming soon!");
-  };
-
-  const handleGoogleLogin = (e) => {
-    e.preventDefault();
-    // TODO: Implement Google registration
-    toast.success("Google registration functionality coming soon!");
   };
 
   return (
