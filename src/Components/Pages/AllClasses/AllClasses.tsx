@@ -65,7 +65,7 @@ const AllClasses = () => {
 
   return (
     <div className="px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
-       <div className="text-center my-16">
+      <div className="text-center my-16">
         <div className="inline-flex items-center gap-2 bg-[#16A34A]/10 text-[#16A34A] px-4 py-2 rounded-full text-sm font-semibold mb-4">
           <FaFire className="text-sm" />
           Best Classes
@@ -78,7 +78,7 @@ const AllClasses = () => {
       </div>
       <div className="my-12 w-full px-4">
         <br />
-        <form onChange={(e) => setSearch(e.target.value)}>
+        <form>
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
@@ -86,8 +86,9 @@ const AllClasses = () => {
               className="grow"
               placeholder="Search"
               ref={inputRef}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <button type="Submit">
+            <button type="submit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

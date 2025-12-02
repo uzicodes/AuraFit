@@ -35,9 +35,9 @@ const Banner = () => {
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Your Only Limit is{" "}
+            Your Only Limit is {" "}
             <span className="bg-gradient-to-r from-[#16A34A] to-[#22C55E] bg-clip-text text-transparent">
-              You
+              You !
             </span>
           </h1>
 
